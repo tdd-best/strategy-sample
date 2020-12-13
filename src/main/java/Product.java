@@ -26,4 +26,8 @@ public class Product {
     public double getWeight() {
         return weight;
     }
+
+    double getSize() {
+        return getLength() * getWidth() * getHeight();
+    }
 }
