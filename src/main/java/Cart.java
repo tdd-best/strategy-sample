@@ -1,8 +1,7 @@
 public class Cart {
 
     public double shippingFee(String shipperName, Product product) {
-        Shipper shipper = getShipper(shipperName);
-        return shipper.calculateFee(product);
+        return getShipper(shipperName).calculateFee(product);
     }
 
     private Shipper getShipper(String shipperName) {
