@@ -1,6 +1,7 @@
 public class Cart {
     private final BlackCat blackCat = new BlackCat();
     private final Hsinchu hsinchu = new Hsinchu();
+    private final PostOffice postOffice = new PostOffice();
 
     public double shippingFee(String shipper, Product product) {
         switch (shipper) {
@@ -10,16 +11,10 @@ public class Cart {
                 return hsinchu.calculateFee(product);
             }
             case "post office": {
-                return calculateFeeByPostOffice(product);
+                return postOffice.calculateFee(product);
             }
             default:
                 throw new IllegalArgumentException("shipper not exist");
         }
-    }
-
-    private double calculateFeeByPostOffice(Product product) {
-        double feeByWeight = 80 + product.getWeight() * 10;
-        double feeBySize = product.getSize() * 0.00002 * 1100;
-        return Math.min(feeByWeight, feeBySize);
     }
 }
