@@ -19,7 +19,7 @@ public class Cart {
                 double feeByWeight = 80 + weight * 10;
                 double size = length * width * height;
                 double feeBySize = size * 0.00002 * 1100;
-                return feeByWeight < feeBySize ? feeByWeight : feeBySize;
+                return Math.min(feeByWeight, feeBySize);
             }
             default:
                 throw new IllegalArgumentException("shipper not exist");
