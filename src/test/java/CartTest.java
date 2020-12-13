@@ -11,37 +11,37 @@ public class CartTest {
 
     @Test
     void black_cat_with_light_weight() {
-        double shippingFee = cart.shippingFee(blackCat, 30, 20, 10, 5);
+        double shippingFee = cart.shippingFee(blackCat, new Product(30, 20, 10, 5));
         feeShouldBe(150, shippingFee);
     }
 
     @Test
     void black_cat_with_heavy_weight() {
-        double shippingFee = cart.shippingFee(blackCat, 30, 20, 10, 50);
+        double shippingFee = cart.shippingFee(blackCat, new Product(30, 20, 10, 50));
         feeShouldBe(500, shippingFee);
     }
 
     @Test
     void hsinchu_with_small_size() {
-        double shippingFee = cart.shippingFee(hsinchu, 30, 20, 10, 50);
+        double shippingFee = cart.shippingFee(hsinchu, new Product(30, 20, 10, 50));
         feeShouldBe(144, shippingFee);
     }
 
     @Test
     void hsinchu_with_huge_size() {
-        double shippingFee = cart.shippingFee(hsinchu, 100, 20, 10, 50);
+        double shippingFee = cart.shippingFee(hsinchu, new Product(100, 20, 10, 50));
         feeShouldBe(480, shippingFee);
     }
 
     @Test
     void post_office_by_weight() {
-        double shippingFee = cart.shippingFee(postOffice, 100, 20, 10, 3);
+        double shippingFee = cart.shippingFee(postOffice, new Product(100, 20, 10, 3));
         feeShouldBe(110, shippingFee);
     }
 
     @Test
     void post_office_by_size() {
-        double shippingFee = cart.shippingFee(postOffice, 100, 20, 10, 300);
+        double shippingFee = cart.shippingFee(postOffice, new Product(100, 20, 10, 300));
         feeShouldBe(440, shippingFee);
     }
 
