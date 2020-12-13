@@ -9,14 +9,14 @@ public class Cart {
         } else if (shipper.equals("hsinchu")) {
             double size = length * width * height;
             if (length > 100 || width > 100 || height > 100) {
-                return size * 0.0000353 * 1100 + 500;
+                return size * 0.00002 * 1100 + 500;
             } else {
-                return size * 0.0000353 * 1200;
+                return size * 0.00002 * 1200;
             }
         } else if (shipper.equals("post office")) {
             double feeByWeight = 80 + weight * 10;
             double size = length * width * height;
-            double feeBySize = size * 0.0000353 * 1100;
+            double feeBySize = size * 0.00002 * 1100;
             return feeByWeight < feeBySize ? feeByWeight : feeBySize;
         } else {
             throw new IllegalArgumentException("shipper not exist");
