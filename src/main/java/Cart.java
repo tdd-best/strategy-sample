@@ -1,7 +1,7 @@
 public class Cart {
 
-    public double shippingFee(String shipper, Product product) {
-        switch (shipper) {
+    public double shippingFee(String shipperName, Product product) {
+        switch (shipperName) {
             case "black cat":
                 return new BlackCat().calculateFee(product);
             case "hsinchu": {
