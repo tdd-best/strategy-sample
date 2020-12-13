@@ -1,8 +1,9 @@
-public class BlackCat {
+public class BlackCat implements Shipper {
     public BlackCat() {
     }
 
-    double calculateFee(Product product) {
+    @Override
+    public double calculateFee(Product product) {
         if (product.getWeight() > 20) {
             return 500;
         } else {
