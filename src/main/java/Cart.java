@@ -2,11 +2,7 @@ public class Cart {
     public double shippingFee(String shipper, Product product) {
         switch (shipper) {
             case "black cat":
-                if (product.getWeight() > 20) {
-                    return 500;
-                } else {
-                    return 100 + product.getWeight() * 10;
-                }
+                return calculateFeeByBlackCat(product);
             case "hsinchu": {
                 if (product.getLength() > 100 || product.getWidth() > 100 || product.getHeight() > 100) {
                     return product.getSize() * 0.00002 * 1100 + 500;
@@ -21,6 +17,14 @@ public class Cart {
             }
             default:
                 throw new IllegalArgumentException("shipper not exist");
+        }
+    }
+
+    private double calculateFeeByBlackCat(Product product) {
+        if (product.getWeight() > 20) {
+            return 500;
+        } else {
+            return 100 + product.getWeight() * 10;
         }
     }
 }
