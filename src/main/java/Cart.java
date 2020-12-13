@@ -1,6 +1,11 @@
 public class Cart {
 
     public double shippingFee(String shipperName, Product product) {
+        Shipper shipper = getShipper(shipperName);
+        return shipper.calculateFee(product);
+    }
+
+    private Shipper getShipper(String shipperName) {
         Shipper shipper;
         switch (shipperName) {
             case "black cat":
@@ -17,6 +22,6 @@ public class Cart {
             default:
                 throw new IllegalArgumentException("shipper not exist");
         }
-        return shipper.calculateFee(product);
+        return shipper;
     }
 }
