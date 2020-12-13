@@ -7,15 +7,19 @@ public class Cart {
             case "black cat":
                 return blackCat.calculateFee(product);
             case "hsinchu": {
-                return hsinchu.calculateFeeByHsinchu(product);
+                return hsinchu.calculateFee(product);
             }
             case "post office": {
-                double feeByWeight = 80 + product.getWeight() * 10;
-                double feeBySize = product.getSize() * 0.00002 * 1100;
-                return Math.min(feeByWeight, feeBySize);
+                return calculateFeeByPostOffice(product);
             }
             default:
                 throw new IllegalArgumentException("shipper not exist");
         }
+    }
+
+    private double calculateFeeByPostOffice(Product product) {
+        double feeByWeight = 80 + product.getWeight() * 10;
+        double feeBySize = product.getSize() * 0.00002 * 1100;
+        return Math.min(feeByWeight, feeBySize);
     }
 }
