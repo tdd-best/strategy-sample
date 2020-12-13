@@ -1,20 +1,22 @@
 public class Cart {
 
     public double shippingFee(String shipperName, Product product) {
+        Shipper shipper;
         switch (shipperName) {
             case "black cat":
-                Shipper shipper = new BlackCat();
-                return shipper.calculateFee(product);
+                shipper = new BlackCat();
+                break;
             case "hsinchu": {
                 shipper = new Hsinchu();
-                return shipper.calculateFee(product);
+                break;
             }
             case "post office": {
                 shipper = new PostOffice();
-                return shipper.calculateFee(product);
+                break;
             }
             default:
                 throw new IllegalArgumentException("shipper not exist");
         }
+        return shipper.calculateFee(product);
     }
 }
